@@ -1,37 +1,13 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Mood Tracker</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body class="bg-gray-100 min-h-screen flex flex-col items-center p-4">
-
-    <header class="w-full max-w-xl text-center my-4">
-        <h1 class="text-3xl font-bold text-gray-800">Mood Tracker</h1>
-    </header>
-
-    <section id="mood-list" class="w-full max-w-xl bg-white rounded-lg shadow p-4 mb-4">
-    </section>
-
-    <button id="add-mood-btn" class="bg-blue-500 text-white px-4 py-2 rounded hover:bg-blue-600">
-        Add Mood
-    </button>
-
-     <div id="mood-modal" class="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center hidden">
-        <div class="bg-white p-6 rounded-lg w-96">
-            <h2 class="text-xl font-bold mb-4">Add New Mood</h2>
-            <input type="text" id="mood-text" placeholder="Enter your mood" class="w-full p-2 border rounded mb-4">
-            <input type="color" id="mood-color" value="#f87171" class="w-full mb-4">
-            <div class="flex justify-end space-x-2">
-                <button id="save-mood-btn" class="bg-green-500 text-white px-4 py-2 rounded hover:bg-green-600">Save</button>
-                <button id="close-modal-btn" class="bg-gray-300 px-4 py-2 rounded hover:bg-gray-400">Cancel</button>
-            </div>
-        </div>
-    </div>
-
-    <script src="app.js"></script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>mood-tracker</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>
