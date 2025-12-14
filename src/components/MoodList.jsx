@@ -1,30 +1,40 @@
-const moodColors = {
-  Happy: "bg-yellow-300",
-  Sad: "bg-blue-300",
-  Angry: "bg-red-300",
-  Excited: "bg-green-300",
+import React, { useState, useEffect } from "react";
+import MoodItem from "./MoodItem";
+import { getMoods } from "../utils/localStorage";
+import { moodOptions } from "../utils/moodData";
+
+const MoodList = ({ refresh }) => {
+  const [moods, setMoods] = useState([]);
+
+  useEffect(() => {
+    loadMoods();
+  }, [refresh]);
+
+  const loadMoods = () => {
+    const data = getMoods();
+    // Attach icons from moodOptions
+    const moodsWithIcons = data.map((m) => {
+      const moodObj = moodOptions.find((mo) => mo.name === m.mood);
+      return { ...m, icon: moodObj ? moodObj.icon : "🙂" };
+    });
+    setMoods(moodsWithIcons.reverse()); // show latest first
+  };
+
+  const handleDelete = (id) => {
+    setMoods(moods.filter((m) => m.id !== id));
+  };
+
+  if (moods.length === 0) {
+    return <p className="text-center text-gray-500 mt-6">No moods recorded yet.</p>;
+  }
+
+  return (
+    <div className="mt-6">
+      {moods.map((mood) => (
+        <MoodItem key={mood.id} mood={mood} onDelete={handleDelete} />
+      ))}
+    </div>
+  );
 };
 
-export default function MoodList({ moods, removeMood }) {
-  return (
-    <ul className="w-full max-w-md flex flex-col gap-2">
-      {moods.map((item, index) => (
-        <li
-          key={index}
-          className={`p-3 rounded shadow flex justify-between items-center ${moodColors[item.type] || "bg-gray-200"}`}
-        >
-          <div>
-            <strong>{item.type}:</strong> {item.mood}
-            <div className="text-xs text-gray-700">{item.timestamp}</div>
-          </div>
-          <button
-            onClick={() => removeMood(index)}
-            className="text-red-500 hover:text-red-700 font-bold"
-          >
-            Delete
-          </button>
-        </li>
-      ))}
-    </ul>
-  );
-}
+export default MoodList;
