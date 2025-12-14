@@ -47,11 +47,36 @@ Delete any mood by clicking "Delete"
 MOOD-TRACKER/
 ├── node_modules/
 ├── public/
+│   ├── index.html
+│   └── favicon.ico
 ├── src/
 │   ├── assets/
+│   │   ├── icons/
+│   │   └── illustrations/
+│   ├── api/
+│   │   └── aiAnalysis.js
 │   ├── components/
 │   │   ├── MoodForm.jsx
-│   │   └── MoodList.jsx
+│   │   ├── MoodList.jsx
+│   │   ├── MoodItem.jsx
+│   │   ├── MoodStats.jsx
+│   │   ├── MoodDownload.jsx
+│   │   ├── MoodAdvice.jsx
+│   │   ├── Navbar.jsx
+│   │   ├── Footer.jsx
+│   │   ├── MoodStreak.jsx
+│   │   └── MoodTipsModal.jsx
+│   ├── pages/
+│   │   ├── Dashboard.jsx
+│   │   ├── Statistics.jsx
+│   │   ├── DownloadPage.jsx
+│   │   ├── MoodInsights.jsx
+│   │   ├── CalendarView.jsx
+│   │   └── About.jsx
+│   ├── utils/
+│   │   ├── localStorage.js
+│   │   ├── moodData.js
+│   │   └── helper.js
 │   ├── App.jsx
 │   ├── main.jsx
 │   └── index.css
