@@ -12,12 +12,11 @@ const MoodList = ({ refresh }) => {
 
   const loadMoods = () => {
     const data = getMoods();
-    // Attach icons from moodOptions
     const moodsWithIcons = data.map((m) => {
       const moodObj = moodOptions.find((mo) => mo.name === m.mood);
       return { ...m, icon: moodObj ? moodObj.icon : "🙂" };
     });
-    setMoods(moodsWithIcons.reverse()); // show latest first
+    setMoods(moodsWithIcons.reverse());
   };
 
   const handleDelete = (id) => {
