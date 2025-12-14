@@ -4,7 +4,7 @@ import MoodList from "../components/MoodList";
 import MoodStreak from "../components/MoodStreak";
 import MoodTipsModal from "../components/MoodTipsModal";
 import { getMoods } from "../utils/localStorage";
-import { generateMoodAdvice } from "../utils/moodAdvice";
+import { generateMoodAdvice } from "../api/aiAnalysis";
 
 const Dashboard = () => {
   const [refresh, setRefresh] = useState(false);
@@ -17,6 +17,7 @@ const Dashboard = () => {
 
   const handleMoodAdded = () => {
     setRefresh((prev) => !prev);
+    generateDailyTips();
   };
 
   const generateDailyTips = () => {
@@ -31,7 +32,6 @@ const Dashboard = () => {
   return (
     <div className="min-h-screen bg-gray-50 px-4 py-6">
       <div className="max-w-4xl mx-auto">
-        {/* Page Title */}
         <header className="text-center mb-6">
           <h1 className="text-4xl font-bold text-gray-800">
             Mood Tracker Dashboard
@@ -41,13 +41,8 @@ const Dashboard = () => {
           </p>
         </header>
 
-        {/* Mood Form */}
         <MoodForm onMoodAdded={handleMoodAdded} />
-
-        {/* Streak */}
         <MoodStreak />
-
-        {/* Tips Button */}
         <div className="flex justify-center mt-6">
           <button
             onClick={() => setShowTips(true)}
@@ -56,11 +51,7 @@ const Dashboard = () => {
             View Daily Tips
           </button>
         </div>
-
-        {/* Mood List */}
         <MoodList refresh={refresh} />
-
-        {/* Tips Modal */}
         <MoodTipsModal
           isOpen={showTips}
           onClose={() => setShowTips(false)}

@@ -1,3 +1,4 @@
+// src/pages/Statistics.jsx
 import { useState, useEffect } from "react";
 import MoodStats from "../components/MoodStats";
 import { getMoods } from "../utils/localStorage";
@@ -34,9 +35,7 @@ const Statistics = () => {
               key={p}
               onClick={() => setPeriod(p)}
               className={`px-4 py-2 rounded-lg font-medium transition ${
-                period === p
-                  ? "bg-indigo-500 text-white"
-                  : "bg-white border"
+                period === p ? "bg-indigo-500 text-white" : "bg-white border"
               }`}
             >
               {p.charAt(0).toUpperCase() + p.slice(1)}

@@ -8,7 +8,9 @@
 export const calculateStreak = (moods = []) => {
     if (!moods.length) return 0;
   
-    const sortedMoods = [...moods].sort((a, b) => new Date(b.date) - new Date(a.date));
+    const sortedMoods = [...moods].sort(
+      (a, b) => new Date(b.date) - new Date(a.date)
+    );
     let streak = 1;
     let currentDate = new Date(sortedMoods[0].date);
   
@@ -78,7 +80,11 @@ export const calculateStreak = (moods = []) => {
    */
   export const getMonthlyMoods = (moods = []) => {
     const now = new Date();
-    return moods.filter((entry) => new Date(entry.date).getMonth() === now.getMonth());
+    return moods.filter(
+      (entry) =>
+        new Date(entry.date).getMonth() === now.getMonth() &&
+        new Date(entry.date).getFullYear() === now.getFullYear()
+    );
   };
   
   /**
@@ -88,7 +94,9 @@ export const calculateStreak = (moods = []) => {
    */
   export const getYearlyMoods = (moods = []) => {
     const now = new Date();
-    return moods.filter((entry) => new Date(entry.date).getFullYear() === now.getFullYear());
+    return moods.filter(
+      (entry) => new Date(entry.date).getFullYear() === now.getFullYear()
+    );
   };
   
   /**
@@ -106,9 +114,15 @@ export const calculateStreak = (moods = []) => {
         return moods.filter((m) => new Date(m.date) >= startOfWeek);
       }
       case "month":
-        return moods.filter((m) => new Date(m.date).getMonth() === now.getMonth());
+        return moods.filter(
+          (m) =>
+            new Date(m.date).getMonth() === now.getMonth() &&
+            new Date(m.date).getFullYear() === now.getFullYear()
+        );
       case "year":
-        return moods.filter((m) => new Date(m.date).getFullYear() === now.getFullYear());
+        return moods.filter(
+          (m) => new Date(m.date).getFullYear() === now.getFullYear()
+        );
       default:
         return moods;
     }
