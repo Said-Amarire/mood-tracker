@@ -172,4 +172,3 @@ GitHub: github.com/Said-Amarire
 
 ## 📄 License
 This project is licensed under the MIT License.
-View License
