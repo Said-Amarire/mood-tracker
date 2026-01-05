@@ -1,12 +1,11 @@
 const Footer = () => {
-    return (
-      <footer className="bg-gray-100 text-center py-4 mt-10">
-        <p className="text-sm text-gray-600">
-          © {new Date().getFullYear()} Mood Tracker App. Built with React & TailwindCSS.
-        </p>
-      </footer>
-    );
-  };
-  
-  export default Footer;
-  
+  return (
+    <footer className="bg-indigo-600 text-white mt-10">
+      <div className="max-w-6xl mx-auto px-6 py-4 flex flex-col md:flex-row justify-between items-center gap-2">
+        <p className="text-sm">&copy; {new Date().getFullYear()} MoodTracker. All rights reserved.</p>
+      </div>
+    </footer>
+  );
+};
+
+export default Footer;

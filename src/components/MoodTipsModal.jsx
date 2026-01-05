@@ -12,12 +12,10 @@ const MoodTipsModal = ({ isOpen, onClose, tips }) => {
         >
           ✕
         </button>
-        <h2 className="text-2xl font-bold mb-4 text-center">Daily Tips</h2>
+        <h2 className="text-2xl font-bold mb-4 text-center">Daily AI Tips</h2>
         <ul className="list-disc list-inside space-y-2">
           {tips.map((tip, index) => (
-            <li key={index} className="text-gray-700">
-              {tip}
-            </li>
+            <li key={index} className="text-gray-700">{tip}</li>
           ))}
         </ul>
       </div>

@@ -10,9 +10,15 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "openai": "^6.10.0",
+    "chart.js": "^4.5.1",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.2.1",
+    "openai": "^6.15.0",
     "react": "^19.2.0",
+    "react-chartjs-2": "^5.3.1",
     "react-dom": "^19.2.0",
+    "react-icons": "^5.5.0",
     "react-router-dom": "^7.10.1"
   },
   "devDependencies": {
@@ -29,5 +35,10 @@
     "postcss": "^8.5.6",
     "tailwindcss": "^4.1.17",
     "vite": "^7.2.4"
-  }
+  },
+  "description": "## Overview Mood Tracker is a simple React application that allows users to log and track their daily moods. Users can add a mood with a description and type (Happy, Sad, Angry, Excited), view their past entries, and delete moods they no longer want. The application stores data locally using `localStorage` for persistence across sessions.",
+  "main": "eslint.config.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

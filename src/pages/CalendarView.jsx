@@ -1,109 +1,79 @@
 import { useEffect, useState } from "react";
 import { getMoods } from "../utils/localStorage";
-import { moodOptions } from "../utils/moodData";
+
+// Colors for each mood
+const moodColors = {
+  happy: "bg-green-100 text-green-800 border-green-300",
+  sad: "bg-blue-100 text-blue-800 border-blue-300",
+  angry: "bg-red-100 text-red-800 border-red-300",
+  calm: "bg-indigo-100 text-indigo-800 border-indigo-300",
+  stressed: "bg-yellow-100 text-yellow-800 border-yellow-300",
+};
 
 const CalendarView = () => {
-  const [moods, setMoods] = useState([]);
-  const [currentDate, setCurrentDate] = useState(new Date());
+  const [groupedMoods, setGroupedMoods] = useState({});
 
   useEffect(() => {
-    setMoods(getMoods());
+    const moods = getMoods();
+    setGroupedMoods(groupByDate(moods));
   }, []);
 
-  const year = currentDate.getFullYear();
-  const month = currentDate.getMonth();
+  const groupByDate = (moods) =>
+    moods.reduce((acc, mood) => {
+      const date = new Date(mood.date).toDateString();
+      if (!acc[date]) acc[date] = [];
+      acc[date].push(mood);
+      return acc;
+    }, {});
 
-  const firstDayOfMonth = new Date(year, month, 1).getDay();
-  const daysInMonth = new Date(year, month + 1, 0).getDate();
-
-  const getMoodForDay = (day) => {
-    const dateStr = new Date(year, month, day).toISOString().split("T")[0];
-    return moods.find((m) => m.date === dateStr);
-  };
-
-  const changeMonth = (direction) => {
-    setCurrentDate(
-      new Date(year, month + direction, 1)
-    );
-  };
+  const dates = Object.keys(groupedMoods).sort(
+    (a, b) => new Date(b) - new Date(a)
+  );
 
   return (
-    <div className="min-h-screen bg-gray-50 px-4 py-6">
-      <div className="max-w-5xl mx-auto">
-        <header className="text-center mb-6">
-          <h1 className="text-3xl font-bold text-gray-800">
-            Mood Calendar
-          </h1>
-          <p className="text-gray-600 mt-2">
-            Visual overview of your daily moods.
-          </p>
-        </header>
+    <div className="app-container py-10">
+      <header className="text-center mb-10">
+        <h1 className="text-3xl font-bold text-gray-50">Mood Calendar</h1>
+        <p className="text-gray-400 mt-2">
+          Track and review your daily mood history in a clear layout
+        </p>
+      </header>
 
-        {/* Month Navigation */}
-        <div className="flex justify-between items-center mb-4">
-          <button
-            onClick={() => changeMonth(-1)}
-            className="px-4 py-2 bg-white border rounded-lg hover:bg-gray-100"
-          >
-            Previous
-          </button>
-
-          <h2 className="text-xl font-semibold text-indigo-600">
-            {currentDate.toLocaleString("default", { month: "long" })} {year}
-          </h2>
-
-          <button
-            onClick={() => changeMonth(1)}
-            className="px-4 py-2 bg-white border rounded-lg hover:bg-gray-100"
-          >
-            Next
-          </button>
-        </div>
-
-        {/* Calendar Grid */}
-        <div className="grid grid-cols-7 gap-2 bg-white p-4 rounded-xl shadow-md">
-          {["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"].map((day) => (
+      {dates.length === 0 ? (
+        <p className="text-center text-gray-400">No mood entries yet.</p>
+      ) : (
+        <div className="space-y-6">
+          {dates.map((date) => (
             <div
-              key={day}
-              className="text-center font-semibold text-gray-600"
+              key={date}
+              className="card border-gray-700"
             >
-              {day}
+              <h2 className="text-indigo-400 font-semibold text-lg mb-4">
+                {date}
+              </h2>
+
+              <div className="grid gap-3">
+                {groupedMoods[date].map((mood) => (
+                  <div
+                    key={mood.id}
+                    className={`flex items-center justify-between border ${
+                      moodColors[mood.mood] || "bg-gray-800 text-gray-100 border-gray-600"
+                    } rounded-xl px-4 py-2 transition transform hover:scale-105`}
+                  >
+                    <span className="capitalize font-medium flex items-center gap-2">
+                      <span className="text-xl">{mood.icon || "🙂"}</span>
+                      {mood.mood}
+                    </span>
+                    {mood.note && (
+                      <span className="text-sm text-gray-300 italic">{mood.note}</span>
+                    )}
+                  </div>
+                ))}
+              </div>
             </div>
           ))}
-
-          {/* Empty slots */}
-          {Array.from({ length: firstDayOfMonth }).map((_, i) => (
-            <div key={`empty-${i}`} />
-          ))}
-
-          {/* Days */}
-          {Array.from({ length: daysInMonth }).map((_, i) => {
-            const day = i + 1;
-            const moodEntry = getMoodForDay(day);
-
-            let moodIcon = "";
-            let bgColor = "bg-gray-100";
-
-            if (moodEntry) {
-              const moodData = moodOptions.find(
-                (m) => m.name === moodEntry.mood
-              );
-              moodIcon = moodData?.icon;
-              bgColor = "bg-indigo-100";
-            }
-
-            return (
-              <div
-                key={day}
-                className={`h-20 rounded-lg flex flex-col items-center justify-center text-sm ${bgColor}`}
-              >
-                <span className="font-semibold">{day}</span>
-                <span className="text-2xl">{moodIcon}</span>
-              </div>
-            );
-          })}
         </div>
-      </div>
+      )}
     </div>
   );
 };

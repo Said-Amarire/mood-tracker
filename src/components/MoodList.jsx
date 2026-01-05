@@ -1,37 +1,24 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import MoodItem from "./MoodItem";
-import { getMoods } from "../utils/localStorage";
 import { moodOptions } from "../utils/moodData";
 
-const MoodList = ({ refresh }) => {
-  const [moods, setMoods] = useState([]);
-
-  useEffect(() => {
-    loadMoods();
-  }, [refresh]);
-
-  const loadMoods = () => {
-    const data = getMoods();
-    const moodsWithIcons = data.map((m) => {
-      const moodObj = moodOptions.find((mo) => mo.name === m.mood);
-      return { ...m, icon: moodObj ? moodObj.icon : "🙂" };
-    });
-    setMoods(moodsWithIcons.reverse());
-  };
-
-  const handleDelete = (id) => {
-    setMoods(moods.filter((m) => m.id !== id));
-  };
-
-  if (moods.length === 0) {
+const MoodList = ({ moods }) => {
+  if (!moods || moods.length === 0) {
     return <p className="text-center text-gray-500 mt-6">No moods recorded yet.</p>;
   }
 
   return (
-    <div className="mt-6">
-      {moods.map((mood) => (
-        <MoodItem key={mood.id} mood={mood} onDelete={handleDelete} />
-      ))}
+    <div className="mt-6 space-y-4">
+      {moods.map((mood) => {
+        const moodObj = moodOptions.find((mo) => mo.name === mood.mood);
+        return (
+          <MoodItem
+            key={mood.id}
+            mood={{ ...mood, icon: moodObj ? moodObj.icon : "🙂" }}
+            onDelete={() => {}}
+          />
+        );
+      })}
     </div>
   );
 };
