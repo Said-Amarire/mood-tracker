@@ -1,96 +1,177 @@
-# Mood Tracker
+# 🌈 Mood Tracker Web Application
 
-## Overview
-Mood Tracker is a simple React application that allows users to log and track their daily moods. Users can add a mood with a description and type (Happy, Sad, Angry, Excited), view their past entries, and delete moods they no longer want. The application stores data locally using `localStorage` for persistence across sessions.
+![Mood Tracker Banner](https://via.placeholder.com/1200x300?text=Mood+Tracker+Web+App)
 
-## Features
-- Add mood with text description and type
-- View list of moods with timestamps
-- Color-coded moods for better visualization
-- Delete moods from the list
-- Data saved locally using `localStorage`
-- Responsive design using Tailwind CSS
+[![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://mood-tracker-ad.vercel.app)
+[![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](https://opensource.org/licenses/MIT)
+[![Made with React](https://img.shields.io/badge/Made%20with-React-blue?style=for-the-badge)](https://reactjs.org/)
+[![Tailwind CSS](https://img.shields.io/badge/Styled%20with-Tailwind%20CSS-teal?style=for-the-badge)](https://tailwindcss.com/)
 
-## Tech Stack
-- React.js
-- Tailwind CSS
-- Vite for project setup and development
-- localStorage for data persistence
+---
 
-## Getting Started
+## 📌 Overview
 
-### Installation
-1. Clone the repository:
-```bash
-git clone https://github.com/Said-Amarire/mood-tracker.git
+**Mood Tracker** is a modern, responsive, and interactive web application that allows users to **log, track, and analyze their daily moods**. It provides an intuitive interface, smart insights, streak tracking, calendar visualization, and data export functionality.  
+
+This project was developed as a **Capstone Project** for a **Front-End Web Development program**, demonstrating practical skills in React, Tailwind CSS, and modern web development practices.
+
+**Live Demo:** [Click here to try it](https://mood-tracker-ad.vercel.app)
+
+---
+
+## 🚀 Features
+
+- ✅ **Daily Mood Logging**: Add moods with descriptions and type (Happy, Sad, Angry, Excited).  
+- 🗂 **Persistent Storage**: All data is saved locally using `localStorage`.  
+- 📊 **Mood Statistics**: Weekly, monthly, and yearly mood analysis with charts.  
+- 🔥 **Mood Streaks**: Track consecutive days of mood logging.  
+- 📅 **Calendar View**: Visualize mood patterns over time.  
+- 📥 **Export Data**: Download mood data as JSON or CSV.  
+- 🧠 **Smart Insights**: Personalized logic-driven insights based on mood trends.  
+- 📱 **Responsive Design**: Works perfectly on desktop, tablet, and mobile.  
+- 🧼 **Clean Architecture**: Modular, reusable components for scalable development.  
+
+---
+
+## 🧠 Smart Logic & AI Readiness
+
+The application has a **smart logic layer** that analyzes mood patterns to provide actionable insights.  
+
+> The project structure is designed for **future AI integration**, such as connecting to OpenAI APIs, without modifying core architecture.  
+
+---
+
+## 🛠 Technologies Used
+
+- **React.js** (Vite)  
+- **Tailwind CSS**  
+- **JavaScript (ES6+)**  
+- **React Router**  
+- **Local Storage API**  
+- **Git & GitHub**  
+- **Figma** (UI planning)  
+
+---
+
+## 📁 Project Structure
+
 ```
-## 2 Navigate to the project directory:
-cd mood-tracker
-
-## 3 Install dependencies:
-npm install
-
-## Run the Project
-npm run dev
-
-Open http://localhost:5173
- in your browser to view the application.
-
-## Usage
-Type your mood description
-Select mood type from the dropdown
-Click "Add Mood" to save it
-Delete any mood by clicking "Delete"
-
-### Folder Structure
-```
-MOOD-TRACKER/
-├── node_modules/
-├── public/
-│   ├── index.html
-│   └── favicon.ico
-├── src/
-│   ├── assets/
-│   │   ├── icons/
-│   │   └── illustrations/
-│   ├── api/
+Mood_Tracker
+├── node_modules
+├── public
+│   └── vite.svg
+├── src
+│   ├── api
 │   │   └── aiAnalysis.js
-│   ├── components/
-│   │   ├── MoodForm.jsx
-│   │   ├── MoodList.jsx
-│   │   ├── MoodItem.jsx
-│   │   ├── MoodStats.jsx
-│   │   ├── MoodDownload.jsx
-│   │   ├── MoodAdvice.jsx
-│   │   ├── Navbar.jsx
+│   ├── assets
+│   │   ├── logo.png
+│   │   └── react.svg
+│   ├── components
 │   │   ├── Footer.jsx
+│   │   ├── MoodAdvice.jsx
+│   │   ├── MoodDownload.jsx
+│   │   ├── MoodForm.jsx
+│   │   ├── MoodItem.jsx
+│   │   ├── MoodList.jsx
+│   │   ├── MoodStats.jsx
 │   │   ├── MoodStreak.jsx
-│   │   └── MoodTipsModal.jsx
-│   ├── pages/
+│   │   ├── MoodTipsModal.jsx
+│   │   └── Navbar.jsx
+│   ├── pages
+│   │   ├── About.jsx
+│   │   ├── CalendarView.jsx
 │   │   ├── Dashboard.jsx
-│   │   ├── Statistics.jsx
 │   │   ├── DownloadPage.jsx
 │   │   ├── MoodInsights.jsx
-│   │   ├── CalendarView.jsx
-│   │   └── About.jsx
-│   ├── utils/
+│   │   └── Statistics.jsx
+│   ├── utils
+│   │   ├── helper.js
 │   │   ├── localStorage.js
-│   │   ├── moodData.js
-│   │   └── helper.js
+│   │   ├── moodAdvice.js
+│   │   └── moodData.js
+│   ├── .DS_Store
+│   ├── App.css
 │   ├── App.jsx
-│   ├── main.jsx
-│   └── index.css
-├── .gitignore
-├── package.json
+│   ├── index.css
+│   └── main.jsx
+├── .DS_Store
+├── README.md
+├── eslint.config.js
+├── index.html
 ├── package-lock.json
+├── package.json
 ├── postcss.config.cjs
 ├── tailwind.config.cjs
-├── vite.config.js
-└── README.md
+└── vite.config.js
 ```
 
-## Author
-Said Amarire
 
-## License
+---
+
+## 🖼 Screenshots
+
+### Dashboard
+![Dashboard](https://via.placeholder.com/600x300?text=Dashboard)
+
+### Mood Statistics
+![Statistics](https://via.placeholder.com/600x300?text=Statistics)
+
+### Calendar View
+![Calendar](https://via.placeholder.com/600x300?text=Calendar+View)
+
+### Export / Download
+![Download](https://via.placeholder.com/600x300?text=Download+Data)
+
+> Replace placeholders with your actual app screenshots for a polished presentation.
+
+---
+
+## 📄 Pages Overview
+
+- **Dashboard** – Add moods, view history, streaks, and tips  
+- **Statistics** – Visualize weekly, monthly, yearly trends  
+- **Mood Insights** – Smart insights and emotional patterns  
+- **Calendar View** – Overview of moods by date  
+- **Download Page** – Export mood data  
+- **About** – Project and technical summary  
+
+---
+
+## 🛠 Installation & Setup
+
+```bash
+# Clone the repository
+git clone https://github.com/Said-Amarire/mood-tracker.git
+```
+# Navigate to the project folder
+cd mood-tracker
+
+# Install dependencies
+npm install
+
+# Run the project locally
+npm run dev
+```
+Open http://localhost:5173
+ to view the app.
+ ```
+
+## 🧪 Usage Instructions
+- Enter your mood description
+- Select the mood type from the dropdown
+- Click Add Mood to save
+- Delete moods if necessary
+- Explore statistics, streaks, and insights
+
+## 📌 Data Handling
+- Mood data is stored locally using localStorage
+- No backend or database is required
+- Data persists across sessions
+
+## 👨‍💻 Author
+**Said Amarire**
+GitHub: github.com/Said-Amarire
+
+## 📄 License
 This project is licensed under the MIT License.
+View License
