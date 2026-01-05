@@ -1,7 +1,5 @@
 # 🌈 Mood Tracker Web Application
 
-![Mood Tracker Banner](https://via.placeholder.com/1200x300?text=Mood+Tracker+Web+App)
-
 [![Live Demo](https://img.shields.io/badge/Live-Demo-blue?style=for-the-badge)](https://mood-tracker-ad.vercel.app)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green?style=for-the-badge)](https://opensource.org/licenses/MIT)
 [![Made with React](https://img.shields.io/badge/Made%20with-React-blue?style=for-the-badge)](https://reactjs.org/)
