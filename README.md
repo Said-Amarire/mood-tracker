@@ -111,16 +111,16 @@ Mood_Tracker
 ## 🖼 Screenshots
 
 ### Dashboard
-![Dashboard](https://via.placeholder.com/600x300?text=Dashboard)
+![Dashboard](https://github.com/Said-Amarire/mood-tracker/raw/main/public/images/dashboard.png)
 
-### Mood Statistics
-![Statistics](https://via.placeholder.com/600x300?text=Statistics)
+### Statistics
+![Statistics](https://github.com/Said-Amarire/mood-tracker/raw/main/public/images/statistics.png)
 
 ### Calendar View
-![Calendar](https://via.placeholder.com/600x300?text=Calendar+View)
+![Calendar](https://github.com/Said-Amarire/mood-tracker/raw/main/public/images/calendar.png)
 
-### Export / Download
-![Download](https://via.placeholder.com/600x300?text=Download+Data)
+### Download Page
+![Download](https://github.com/Said-Amarire/mood-tracker/raw/main/public/images/download.png)
 
 > Replace placeholders with your actual app screenshots for a polished presentation.
 
